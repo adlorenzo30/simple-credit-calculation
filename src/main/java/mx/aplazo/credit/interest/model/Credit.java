@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,15 +27,15 @@ public class Credit implements Serializable {
 	@GeneratedValue
 	private Long id;
 
-	@NotEmpty(message = "amount is required")
+	@NotNull(message = "amount is required")
 	@DecimalMin("1.00")
 	private Double amount;
 
-	@NotEmpty(message = "terms is required")
+	@NotNull(message = "terms is required")
 	@Min(1)
 	private Integer terms;
 
-	@NotEmpty(message = "rate is required")
+	@NotNull(message = "rate is required")
 	@DecimalMin("0.1")
 	private Double rate;
 
